@@ -55,9 +55,11 @@ export const useSocketValue = (event) => {
   const { socket } = useContext(SocketIoContext);
 
   useEffect(() => {
-    socket.on(event, handleValueChange);
-    return () => socket.off(event, handleValueChange);
-  }, [event]);
+    if (socket) {
+      socket.on(event, handleValueChange);
+      return () => socket.off(event, handleValueChange);
+    }
+  }, [socket, event]);
 
   return value;
 };
