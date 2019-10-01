@@ -1,0 +1,10 @@
+.LocalStatus__container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .btn {
+    cursor: pointer;
+  }
+}

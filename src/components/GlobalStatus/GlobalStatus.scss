@@ -1,0 +1,13 @@
+.GlobalStatus__container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .GlobalStatus__image {
+    filter: grayscale(100%);
+
+    &.GlobalStatus__image--active {
+      filter: none;
+    }
+  }
+}
