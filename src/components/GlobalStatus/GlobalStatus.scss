@@ -1,7 +1,10 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
 .GlobalStatus__container {
   height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   .GlobalStatus__image {
     filter: grayscale(100%);
@@ -14,7 +17,32 @@
   .GlobalStatus__address {
     color: #ffffffa6;
     font-size: 40px;
-    position: absolute;
-    top: 10px;
+    margin-top: 10px;
+  }
+
+  .GlobalStatus__usersContainer {
+    margin-bottom: 30px;
+    min-height: 200px;
+
+    .GlobalStatus__userList {
+      .GlobalStatus__userListItem {
+        color: white;
+        height: 30px;
+        font-weight: bold;
+        font-size: 24px;
+
+        &.GlobalStatus__userListItem--status {
+          &-available {
+            color: $success;
+          }
+          &-on-air {
+            color: $danger;
+          }
+          &-do-not-disturb {
+            color: $warning;
+          }
+        }
+      }
+    }
   }
 }

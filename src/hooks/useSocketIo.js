@@ -48,8 +48,8 @@ export const useSocket = (event, cb) => {
   return [socket, connected, io];
 };
 
-export const useSocketValue = (event) => {
-  const [value, setValue] = useState(null);
+export const useSocketValue = (event, initialValue = null) => {
+  const [value, setValue] = useState(initialValue);
   const handleValueChange = setValue;
 
   const { socket } = useContext(SocketIoContext);
