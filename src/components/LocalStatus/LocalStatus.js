@@ -23,7 +23,7 @@ const StatusButton = ({ variant, value, children, active, ...props }) => {
 
 const LocalStatus = () => {
   const [localStatus, setLocalStatus] = useState('available');
-  const [name, setName] = useState('');
+  const [name, setName] = useState(localStorage.getItem('on-air-name') || '');
   const [socket, connected] = useSocket();
 
   const handleStatusChange = useCallback(status => setLocalStatus(status), [setLocalStatus]);
@@ -37,7 +37,8 @@ const LocalStatus = () => {
   }, [socket, localStatus]);
 
   useEffect(() => {
-    if (socket && name) {
+    localStorage.setItem('on-air-name', name);
+    if (socket) {
       socket.emit(UPDATE_NAME_EVENT_NAME, name);
     }
   }, [socket, name]);
