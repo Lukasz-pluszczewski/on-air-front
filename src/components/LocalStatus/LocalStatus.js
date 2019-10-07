@@ -31,10 +31,10 @@ const LocalStatus = () => {
   const handleNameChange = event => setName(event.target.value);
 
   useEffect(() => {
-    if (socket && localStatus) {
+    if (socket && localStatus && connected) {
       socket.emit(UPDATE_EVENT_NAME, localStatus);
     }
-  }, [socket, localStatus]);
+  }, [socket, localStatus, connected]);
 
   useEffect(() => {
     localStorage.setItem('on-air-name', name);
