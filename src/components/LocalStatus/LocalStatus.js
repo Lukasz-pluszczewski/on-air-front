@@ -41,7 +41,7 @@ const LocalStatus = () => {
     if (socket) {
       socket.emit(UPDATE_NAME_EVENT_NAME, name);
     }
-  }, [socket, name]);
+  }, [socket, name, connected]);
 
   if (!connected) {
     return (
